@@ -2,7 +2,7 @@ const { Client } = require('discord.js'),
 	fetch = require('node-fetch'),
 	bot = new Client(),
 	mhm = async () => {
-		const subs = ["nsfw","porn","traphentai","hentai"],
+		const subs = ["subredditsYouWant"],
 			randomSub = subs[Math.floor(Math.random() * subs.length)];
 
 		const posts = (await fetch(
@@ -14,11 +14,11 @@ const { Client } = require('discord.js'),
 	};
 
 bot.on('ready', () => {
-	console.log("Discord'a girdim!");
+	console.log("con started!");
 });
 
 bot.on('message', message => {
-	if (message.content === 'meme mhm')
+	if (message.content === 'start')
 		setInterval(async () => message.channel.send(await mhm()), 5000);
 });
 
